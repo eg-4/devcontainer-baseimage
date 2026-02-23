@@ -1,0 +1,9 @@
+/export/*
+!/export/scripts/
+!/export/scripts/*.sh
+!/export/.gitkeep
+
+/import/*
+!/import/.gitkeep
+
+/.env

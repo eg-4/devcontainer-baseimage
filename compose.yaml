@@ -1,0 +1,22 @@
+name: dev-tools
+
+services:
+
+  workspace:
+    build:
+      args:
+        GIT_USER_EMAIL: ${GIT_USER_EMAIL}
+        GIT_USER_NAME: ${GIT_USER_NAME}
+    container_name: workspace
+    image: devcontainer-baseimage:latest
+    secrets:
+      - export_env
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./export:/export
+      - ./export/scripts:/export/scripts:ro
+
+secrets:
+  export_env:
+    file: ./.env

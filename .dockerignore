@@ -1,0 +1,13 @@
+.git/
+.github/
+.vscode/
+esxamples/
+export/
+.copilot-commit-message-instructions.md
+.dockerignore
+.editorconfig
+.env.example
+.gitignore
+compose.yml
+Dockerfile
+README.md
