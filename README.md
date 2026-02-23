@@ -189,3 +189,40 @@ RUN apt-get update && apt-get install -y \
 ```
 
 既存のセットアップスクリプトをカスタマイズする場合は、`scripts/` ディレクトリ内の該当スクリプトを直接編集してください。
+
+## 開発環境サンプルの使用
+
+このベースイメージを基に、以下の開発環境サンプルを利用できます。
+
+### Python開発環境
+
+```bash
+cd examples/python-dev
+docker compose up --build
+```
+
+利用可能なコマンド:
+
+- `docker compose exec python-dev python sample_app.py` - サンプルアプリケーション実行
+- `docker compose exec python-dev pytest test_sample_app.py` - テスト実行
+- `docker compose exec python-dev bash` - シェル起動
+
+### Node.js開発環境（VS Code開発コンテナ）
+
+VS Code開発コンテナを使用したNode.js開発環境のサンプルです。TypeScript、React、Next.js、Tailwind CSSを使用したWebアプリケーションの開発が可能です。
+
+使用方法:
+
+1. VS Codeで `examples/node-dev` フォルダを開く
+2. **Command Palette** (Ctrl+Shift+P) を開く
+3. "Dev Containers: Reopen in Container" を選択
+4. コンテナのビルドと初期化を待つ
+5. 初回起動時、自動的にNext.jsプロジェクトが作成されます
+
+利用可能なコマンド:
+
+- `npm run dev` - 開発サーバー起動
+- `npm run build` - プロダクションビルド
+- `npm run type-check` - 型チェック
+- `npm run format` - コードフォーマット
+- `npm run lint` - リント

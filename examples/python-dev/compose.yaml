@@ -1,0 +1,11 @@
+name: python-dev-environment
+
+services:
+  python-dev:
+    build:
+      context: .
+    container_name: python-dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/python-dev
