@@ -21,8 +21,13 @@ chmod 700 ~/.ssh
 # ホストのSSH秘密鍵をチェックしてコピー
 if [ -d "/tmp/import/.ssh" ] && [ "$(find /tmp/import/.ssh -type f -name 'id_*' ! -name '*.pub' 2>/dev/null | wc -l)" -gt 0 ]; then
   echo "ホストSSHキーをコピー中..."
-  rsync --delete -aqz /tmp/import/.ssh/ ~/.ssh/
-  find ~/.ssh -type f -name 'id_*' ! -name '*.pub' -exec chmod 600 {} \;
+  rsync --delete -aqz --no-perms /tmp/import/.ssh/ ~/.ssh/
+
+  echo "パーミッションを設定中..."
+  # 一旦関連する鍵をすべて600にし、公開鍵のみ644で上書きする
+  chmod 600 ~/.ssh/id_*
+  chmod 644 ~/.ssh/*.pub
+
   echo "✅ ホストSSHキーのコピーが完了しました"
 else
   echo "SSHキーを生成中..."

@@ -45,6 +45,7 @@ cp ~/.gitconfig import/.gitconfig
 # ホストのSSHキーをコピー
 mkdir -p import/.ssh
 cp ~/.ssh/id_* import/.ssh/
+chmod 644 import/.ssh/id_*
 ```
 
 #### GPG キー
